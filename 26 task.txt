@@ -1,0 +1,11 @@
+ We have two arrays, and we want to see what the result of adding the numbers that only show up in one of them.
+
+       addDiff([1,2,3],[2,3,4]) === 5;
+
+       addDiff([-3,2,2,5,6],[1,5,6,7]) === 9;
+
+       addDiff([],[2,3]) === 5;
+
+       addDiff([3,2,4],[]) === 9;
+
+       addDiff([3,2,4],[3,2,4]) === 0; 

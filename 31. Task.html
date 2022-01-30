@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      Take 2 strings, and return a new string, the longest possible, conatining distinct letters, each taken only once.
+      Transform the case of the resulting words (from lower to upper case, and viceversa).
+       */
+      console.log(combineWords("coDing", "rocKs")); // 'COdINGRkS'
+
+      console.log(
+        combineWords("McDonaldsOnceMade", "BubbleGumFlavoredBroccoli")
+      ); // 'mCdONALDSoEbUBgMfVRI'
+
+      console.log(
+        combineWords("SomeFungiCreateZombies", "ThenControlTheirMinds")
+      ); //'sOMEfUNGIcRATzBStHLmD'
+      /*  function combineWords(str1, str2) {
+        str1 += str2;
+        const strToArr = str1.split("").join("");
+
+        let uniqueChar = [...new Set(strToArr)];
+        let convert = uniqueChar
+          .map((char) => {
+            let code = char.charCodeAt();
+            return code >= 65 && code <= 90
+              ? char.toLowerCase()
+              : char.toUpperCase();
+
+            // if (code >= 65 && code <= 90) {
+            //   return char.toUpperCase();
+            // } else {
+            //   return char.toLowerCase();
+            // }
+          })
+          .join("");
+          return convert
+        // const join = convert.join("");
+        // console.log(join);
+      } */
+
+      function combineWords(string1, string2) {
+        let combinedStrings = string1 + string2;
+        let uniqueChars = [...new Set(combinedStrings)];
+        return uniqueChars
+          .map((char) => {
+            return char === char.toUpperCase()
+              ? char.toLowerCase()
+              : char.toUpperCase();
+          })
+          .join("");
+      }
+    </script>
+  </body>
+</html>

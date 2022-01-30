@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-18</title>
+  </head>
+  <body>
+    <script>
+      // getTheCaptial("Juneau Is the Capital city of the AlaSka") === "j-c-s";
+      // getTheCaptial("Chaayos Is Good Chai And chat Point ") === "c-g-c-p";
+      // getTheCaptial("crush The Bottle after Use") === "t-b";
+      // getTheCaptial("inspired By Clouds for purity") === "b-c";
+
+      const getTheCaptial = (data) => {
+        const out = data
+          .split(" ")
+          .join("")
+          // const convertArray = trimspace
+          .split("")
+          .reduce((acc, mov, i, arra) => {
+            if (mov === mov.toUpperCase()) {
+              acc.push(mov);
+            }
+            return acc;
+          }, [])
+          .filter((mov) => {
+            return !"AEIOU".includes(mov);
+          })
+          .sort()
+          .map((mov) => {
+            return mov.toLowerCase();
+          })
+          .join("-");
+        console.log(out);
+      };
+
+      getTheCaptial("Juneau Is The Capital city of the AlaSka"); // === "c-j-s-t";
+      getTheCaptial("inspired By Clouds for purity");
+      getTheCaptial("crush The Bottle after Use");
+      getTheCaptial("Chaayos Is Good chai And chat Point ");
+    </script>
+  </body>
+</html>

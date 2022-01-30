@@ -1,0 +1,8 @@
+const users = [
+{id:32,  fname: 'Mary',    lname:  'Smith'  },
+{id:65,  fname: 'Steve',   lname:  'Hancock'},
+{id:105, fname: 'LJ',      lname:  'Estoque'},
+{id:65,  fname: 'Steve',   lname:  'Hancock'},
+{id:12,  fname: 'Lynette', lname:  'Turner' },
+{id:32,  fname: 'Mary',    lname:  'Smith'  },
+];

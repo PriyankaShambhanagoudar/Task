@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 38</title>
+  </head>
+  <body>
+    <script>
+      function toUnderScore(str) {
+        const data = str.toString();
+
+        const result = data
+          .match(/[A0-Z9][a0-z9]*/g)
+          .map((m) => m.toLowerCase())
+          .join("-");
+        console.log(result);
+      }
+
+      toUnderScore("TestController"); // 'test_controller'
+      toUnderScore("MoviesAndBooks"); // 'movies_and_books'
+      toUnderScore("App7Test"); // 'app7_test'
+      toUnderScore(1); // '1'
+      toUnderScore(4545);
+    </script>
+  </body>
+</html>

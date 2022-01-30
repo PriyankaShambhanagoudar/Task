@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    Liz wants everyone at her company to all hang out for a game of Minecraft, but everyone has told her they have TOO MANY MEETINGS. She knows that there must be some time throughout the day that they are all free for some quality time.
+
+    Write a function that given an array of everyone's meetings, returns a list of merged meetings so that Liz can see when everyone is free for games. 
+    */
+
+    // Meetings are represented by clocks of 30 min.the first block begins at 9am
+
+    const meetings = [
+      { startTime: 4, endTime: 8 }, // 11am - 1pm
+      { startTime: 3, endTime: 5 }, // 10:30 am - 11: 30 am
+      { startTime: 0, endTime: 1 }, // 9am - 9:30 am               = 1hr break 
+      { startTime: 10, endTime: 12 }, // 2pm - 3pm               = 30min   break        
+      { startTime: 9, endTime: 10 }, // 1:30pm - 2pm
+    ];
+
+    // o/p
+
+    // const mergedMeetings = [
+    //   { startTime: 0, endTime: 1 }, // 9am - 9:30am
+    //   { startTime: 3, endTime: 8 }, // 10:30am - 1pm
+    //   { startTime: 9, endTime: 12 }, // 1:30pm - 3pm
+    // ];
+
+
+
+    function mergedMeetings(time) {
+      const sortArray = time.sort((a, b) => a.startTime - b.startTime)
+      console.log(sortArray);
+
+
+      const data = sortArray.reduce((acc, mov, i, arr) => {
+        if (arr[i + 1] === undefined) {
+          return acc//stop execution
+        }
+        if (mov.endTime <= arr[i + 1].startTime) {
+
+          //    let x = (mov.startTime && arr[i + 1].endTime)
+
+          acc.push(mov)
+        } else {
+          acc.push({
+            startTime: mov.startTime,
+            endTime: arr[i + 1].endTime
+          })
+          //return mov.startTime && arr[i + 1].endTime
+        }
+        return acc
+
+
+      }, [])
+      console.log(data);
+    }
+    mergedMeetings(meetings)
+  </script>
+</body>
+
+</html>

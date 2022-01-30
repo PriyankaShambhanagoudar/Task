@@ -1,0 +1,6 @@
+Divide each number by the next one
+
+    divideByNextNumber('63') === 23;
+    divideByNextNumber('4381') === 1081;
+    divideByNextNumber('3') === 3; 
+    divideByNextNumber('') === 0;

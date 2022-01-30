@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        {
+          id: 1,
+          name: "Electric Usage",
+          key: "CumPowerusage",
+          value: "",
+          class: "Power Rate",
+          unit: "KW/H",
+          _id: "R6mZZhQUbWKveraL",
+        },
+        {
+          id: 2,
+          name: "Diesel Usage",
+          key: "CumDieselVol",
+          value: "",
+          class: "Volume Rate",
+          unit: "m³/hr",
+          _id: "f5pMjFi80ml9y8Bp",
+        },
+        {
+          id: 3,
+          name: "Carbon Weight %",
+          key: "CarbonWeight",
+          value: "",
+          class: "Percent",
+          unit: "%",
+          _id: "UqS17GG05YR949Xx",
+        },
+        {
+          id: 4,
+          name: "CO2 Emission Factor",
+          key: "CumCO2Emsn",
+          value: "",
+          class: "Percent",
+          unit: "%",
+          _id: "OkvhYD2WDOVFHTW7",
+        },
+        {
+          id: 5,
+          name: "Nox Emission Factor",
+          key: "CumNOxEmsn",
+          value: "",
+          class: "Percent",
+          unit: "%",
+          _id: "q7IkOud3XEzKevtA",
+        },
+        {
+          id: 6,
+          name: "CO Emission Factor",
+          key: "CumCOEmsn",
+          value: "",
+          class: "Percent",
+          unit: "%",
+          _id: "2pbaYEcSKBusqXjZ",
+        },
+        {
+          id: 7,
+          name: "THCCH4 Emission Factor",
+          key: "CumTHCCH4Emsn",
+          value: "",
+          class: "Percent",
+          unit: "%",
+          _id: "ucKzTemdGiKIqRMN",
+        },
+        {
+          id: 8,
+          name: "HC Emission Factor",
+          key: "CumHCEmsn",
+          value: "",
+          class: "Mass Rate",
+          unit: "g/hr",
+          _id: "qf5iKPp6ynBy0tJ3",
+        },
+        {
+          id: 9,
+          name: "PM Emission Factor",
+          key: "CumPMEmsn",
+          value: "",
+          class: "Mass Rate",
+          unit: "g/hr",
+          _id: "eEFnkfEXnigEgJ27",
+        },
+        {
+          id: 10,
+          name: "Solid Usage",
+          key: "CumSolidUse",
+          value: "",
+          class: "Mass Rate",
+          unit: "g/hr",
+          _id: "486sfOR5bz04D1DX",
+        },
+        {
+          id: 11,
+          name: "Water Usage",
+          key: "CumWaterUse",
+          value: "",
+          class: "Volume Rate",
+          unit: "m3/hr",
+          _id: "LUI59gOoi9AzqxXf",
+        },
+        {
+          id: 12,
+          name: "Chemical Usage",
+          key: "CumChemicalUse",
+          value: "",
+          class: "Volume Rate",
+          unit: "m3/hr",
+          _id: "9Gcz1risnhJoytlE",
+        },
+        {
+          id: 13,
+          name: "S1 Usage",
+          key: "CumS1Usg",
+          value: "",
+          class: "Volume Rate",
+          unit: "m3/hr",
+          _id: "QhN4lVAQu5UyoJY4",
+        },
+        {
+          id: 14,
+          name: "Test",
+          key: "CumPowerusage",
+          value: "",
+          class: "Power Rate",
+          unit: "1000W/H",
+          _id: "R6mZZhQUbWKveraL",
+        },
+      ];
+
+ /*      //////////////////////////////////
+      //key
+      const obj = [];
+      for (const value of data) {
+        // console.log(value.class);
+        obj.push(value.class);
+      }
+
+      let dataKey = [...new Set(obj)];
+
+      const obj1 = [];
+      for (const value of data) {
+        //console.log(value.unit);
+        obj1.push(value.unit);
+      }
+
+      let dataVlues = [...new Set(obj1)];
+
+
+      let result = dataVlues.reduce(function (result, field, index) {
+        result[dataKey[index]] = [field];
+        return result;
+
+      }, {});
+      console.log(result);
+
+      
+
+      let keys = [...dataKey];
+      let values = [...dataVlues];
+      console.log(values);
+      console.log(keys);
+    //   let r = {};
+    //   keys = [...dataKey];
+    //   values = [...dataVlues];
+    //   for (let i = 0; i < keys.length; i++) {
+    //     r[keys[i]] = [values[i]];
+    //   }
+    //   console.log(r);
+ */
+
+const obj={};
+for (let i=0, len= data.length; i<len; i++){
+  if(!obj[data[i]['class']]){
+    obj[data[i]['class']]=[];
+  }
+  obj[data[i]['class']]=[...new Set([...obj[data[i]['class']],data[i]['unit']])]
+}
+console.log(obj);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+
+
+  getConsecutiveChains(1235678) === [123,5678];
+
+  getConsecutiveChains(34589) === [345, 89];
+
+  getConsecutiveChains(1245679) === [12, 4567,9];

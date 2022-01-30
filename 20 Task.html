@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 20</title>
+  </head>
+  <body>
+    <script>
+      /*      Who won the lottery?
+
+             A group of friends has bought lottery tickets. The winning ticket's first and last digits add up to the same number as the four middle ones. Return the name of the winner or none.
+
+            getWinner([
+            {name: "Amy", ticket: 103002},
+            {name: "Ginger", ticket: 435429},
+            {name: "Philippe", ticket: 478491},
+            ]) === 'Amy';
+
+            getWinner([
+            {name: "Dmitry", ticket: 406502},
+            {name: "Cruzo", ticket: 275839},
+            {name: "Fransis", ticket: 452491},
+            ]) === 'none';
+
+            getWinner([
+            {name: "Pablo", ticket: 742902},
+            {name: "Moris", ticket: 233419},
+            {name: "Sandra", ticket: 923499},
+            ]) === 'Moris, Sandra'; */
+
+      function getWinner(data) {
+        //based on condition filtering the array of objects
+        let winners = data.filter((player) => {
+          //based on tickets filtering
+          return isWinner(player.ticket);
+        });
+        // console.log(winners);
+        return winners.length
+          ? winners
+              .map((mov) => {
+                return mov.name;
+              })
+              .join(", ")
+          : "None";
+      }
+      //helper function
+      function isWinner(ticket) {
+        let strTicket = ticket.toString();
+        let firstDigit = +strTicket[0];
+        //console.log(firstDigit);
+        let lastDigit = +strTicket[strTicket.length - 1];
+        //console.log(lastDigit);
+        let sumOfMiddle = ticket
+          .toString()
+          .slice(1, strTicket.length - 1)
+          .split("")
+          .reduce((acc, mov) => acc + +mov, 0);
+        //console.log(sumOfMiddle);
+        return firstDigit + lastDigit === sumOfMiddle;
+      }
+
+      console.log(
+        getWinner([
+          { name: "Amy", ticket: 103002 },
+          { name: "Ginger", ticket: 435429 },
+          { name: "Philippe", ticket: 478491 },
+        ])
+      );
+
+      console.log(
+        getWinner([
+          { name: "Pablo", ticket: 742902 },
+          { name: "Moris", ticket: 233419 },
+          { name: "Sandra", ticket: 923499 },
+        ])
+      );
+      console.log(
+        getWinner([
+          { name: "Dmitry", ticket: 406502 },
+          { name: "Cruzo", ticket: 275839 },
+          { name: "Fransis", ticket: 452491 },
+        ])
+      );
+    </script>
+  </body>
+</html>

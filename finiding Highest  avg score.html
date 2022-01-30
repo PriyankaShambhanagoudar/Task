@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highest score in array</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        // { name: "max", scores: [96, 95, 91] },
+        { name: "Kim", scores: [56, 85, 93] },
+        { name: "Donald", scores: [96, 95, 91] },
+        { name: "Boris", scores: [56, 65, 56] },
+      ];
+
+      // //outPut= Donald
+      // let arr = [];
+
+      // for (let i = 0; i < data.length; i++) {
+      //   const Highest = data[i].scores.reduce((acc, mov) => acc + mov, 0);
+      //   let avg = Highest / data[i].scores.length;
+
+      //   let x = { name: data[i].name, avg: avg };
+      //   arr.push(x);
+      // }
+
+      // arr.sort((a, b) => b.avg - a.avg);
+      // console.log(arr[0].name);
+
+      ////////////////////////////////////////////////////
+      //mk
+      const avgScore = data.reduce((acc, m, i) => {
+        let x = m.scores.reduce((a, b) => {
+          return (a + b) / m.scores.length;
+        }, 0);
+        acc[i] = { name: m.name, avg: x };
+        return acc;
+      }, []);
+
+      const topc = avgScore.sort((a, b) => b.avg - a.avg);
+      console.log(topc[0].name);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr1 = [
+      ["name", "id", "age", "weight"],
+      ["Susan", "3", "20", "120"],
+      ["John", "1", "21", "150"],
+      ["Bob", "2", "23", "90"],
+      ["Ben", "4", "20", "100"],
+    ];
+
+    const arr2 = [
+      ["name", "id", "height"],
+      ["Bob", "2", "50"],
+      ["John", "1", "45"],
+      ["Ben", "4", "20", "100"],
+      ["Susan", "3", "48"],
+    ];
+
+    const arr3 = [
+      ["name", "id", "parent"],
+      ["Bob", "2", "yes"],
+      ["John", "1", "yes"],
+    ];
+    ////////////////////////////////////////////////
+    const [obj1, ...obj2] = arr1;
+    const [obj3, ...obj4] = arr2;
+    const [obj5, ...obj6] = arr3;
+
+    let arr01 = obj2.map((data) => {
+      let arrReduce = obj1.reduce((acc, mov, i) => {
+        acc[mov] = data[i];
+        return acc;
+      }, {});
+      return arrReduce;
+    });
+
+    let arr02 = obj4.map((data) => {
+      let arrReduce = obj3.reduce((acc, mov, i) => {
+        acc[mov] = data[i];
+        return acc;
+      }, {});
+      return arrReduce;
+    });
+    let arr03 = obj6.map((data) => {
+      let arrReduce = obj5.reduce((acc, mov, i) => {
+        acc[mov] = data[i];
+        return acc;
+      }, {});
+      return arrReduce;
+    });
+
+
+    const objArray = Object.values([...arr01, ...arr02, ...arr03]
+      .flat()
+      .reduce((acc, mov) => {
+        const key = mov.id;
+        if (!acc[key]) {
+          acc[key] = {
+            ...{
+              name: '', id: "", age: "", height: " ", parent: ''
+            },
+            ...mov,
+          };
+        } else {
+          acc[key] = { ...acc[key], ...mov };
+        }
+        return acc
+      }, {})
+    );
+    const ret = objArray.map((data) => Object.values(data))
+    ret.unshift(Object.keys(objArray[0]))
+    ret.map((data) => data.pop())
+    console.log(ret);
+
+
+    /*
+    [
+      ['name', 'id', 'age', 'height', 'parent'],
+
+      ['Susan', '3', '20', '48', ''],
+      ['John', '1', '21', '45', 'yes'],
+      ['Bob', '2', '23', '50', 'yes'],
+      ['Ben', '4', '20', '43', '']
+    ]
+  */
+      //////////////////////////////////////////////////////////
+
+    /* const [props1, ...ret1] = arr1;
+
+  let retFinal1 = ret1.map((x) => {
+    return props1.reduce((acc, mov, i) => {
+      acc[mov] = x[i];
+      return acc;
+    }, {});
+  });
+
+  const [props2, ...ret2] = arr2;
+  let retFinal2 = ret2.map((x) => {
+    return props2.reduce((acc, mov, i) => {
+      acc[mov] = x[i];
+      return acc;
+    }, {});
+  });
+
+  const [props3, ...ret3] = arr3;
+  let retFinal3 = ret3.map((x) => {
+    return props3.reduce((acc, mov, i) => {
+      acc[mov] = x[i];
+      return acc;
+    }, {});
+  });
+
+  const objArray = Object.values(
+    [...retFinal1, ...retFinal2, ...retFinal3].flat().reduce((acc, mov) => {
+      const key = mov.id;
+      if (!acc[key]) {
+        acc[key] = {
+          ...{ name: "", id: "", age: "", height: "", parent: "" },
+          ...mov,
+        };
+      } else {
+        acc[key] = { ...acc[key], ...mov };
+      }
+      return acc;
+    }, {})
+  );
+  const ret = objArray.map((x) => Object.values(x));
+  ret.unshift(Object.keys(objArray[0]));
+  ret.map((x) => x.pop());
+  console.log(ret); */
+      ////////////////////////////////////////////////////////
+    /*
+  function getArray(arr) {
+    const [headings, ...data] = arr;
+    return data.reduce((acc, data, i) => {
+      // loop over the haedings, and assign the properties to an object
+      const person = {};
+      for (const [index, heading] of headings.entries()) {
+        person[heading] = data[index];
+      }
+      return [...acc, person];
+    }, []);
+  }
+  const allData = [...getArray(arr1), ...getArray(arr2), ...getArray(arr3)];
+  const merged = allData.reduce((acc, currentPerson) => {
+    // if they are already in the acc, then merge their objects, otherwise add them
+    const existingPersonIndex = acc.findIndex(
+      (person) => person.id === currentPerson.id
+    );
+
+    if (existingPersonIndex >= 0) {
+      acc[existingPersonIndex] = {
+        ...acc[existingPersonIndex],
+        ...currentPerson,
+      };
+      return acc;
+    }
+    return [...acc, currentPerson];
+  }, []);
+  console.log(merged);
+  */
+  </script>
+</body>
+
+</html>

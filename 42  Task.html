@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+                  ByteCorp is a famous technology company. The CEO of ByteCorp doesn't trust anyone and thinks that his accountant managed to move huge amounts of money to a competitor company, Megacorp. He hires a computer crime investigator, and asks him to find inconsistencies in the money transfers.
+          
+                  Here is a sample transaction log of the comapny:
+                  Feb SLR 4 M
+                  Feb ENT 800 K
+                  Mar SLR 4000 K
+                  Mar ENT 800 K
+                  Apr SLR 4010 K
+                  Apr ENT 810 K
+          
+                  There are four coloumns:
+                  1. Month of the transaction
+                  2. Reason of the expense (SLR for "salary", ENT for "entertainment", OTR for "other")
+                  3. Amount
+                  4. M, K or B (M for million, K for thousands, B for billion)
+          
+                  In the example above, April expenses show an inconsistency and should be reported.
+          
+                  Another example:
+                  Jul SLR 4 M
+                  Jul ENR 800 K
+                  Jul OTR 1200 K
+                  Aug SLR 4000 K
+                  Aug ENR 800 K
+                  Aug OTR 1190 K
+                  Sep SLR 4000 K
+                  Sep ENR 800 K
+                  Sep OTR 1190 K
+          
+                  Here, July expenses show an inconsistency and should be reported..
+          
+                  As the computer investigator, write a program, which reads the transcation logs, detects inconsistent expenses and prints the exact month containing the "unusual" activities.
+                  */
+
+        let transactionLog1 = [
+            ["Feb", "SLR", 4, "M"],
+            ["Feb", "ENT", 800, "K"],
+            ["Mar", "SLR", 4000, "K"],
+            ["Mar", "ENT", 800, "K"],
+            ["Apr", "SLR", 4010, "K"],
+            ["Apr", "ENT", 810, "K"],
+        ];
+        function inconsistency(arr) {
+            const data = arr.reduce((a, m, i, arr) => {
+                let monthlyExpensive = {
+                    month: "",
+                    expensive: 0,
+                };
+                if (m[3] === "M") {
+                    m[2] = m[2] * 1000;
+                } else if (m[3] === "k") {
+                    m[2] = m[2];
+                }
+
+                let filtered = arr
+                    .filter((x) => x[0].includes(m[0]))
+                    .forEach((mov) => { });
+
+            }, []);
+
+        }
+
+        inconsistency(transactionLog1);
+    </script>
+</body>
+
+</html>

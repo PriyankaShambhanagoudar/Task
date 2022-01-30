@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* const transactionLog = [
+
+
+['Feb', 'SLR', 4, 'M'],
+
+
+['Feb', 'ENT', 800, 'K'],
+
+
+['March', 'SLR', 4000, 'K'],
+
+
+['March', 'ENT', 800, 'K'],
+
+
+['April', 'SLR', 4010, 'K'],
+
+
+['April', 'ENT', 810, 'K']
+
+
+] */
+
+    const transactionLog = [
+      ["Jul", "SLR", 4, "M"],
+
+      ["Jul", "ENR", 800, "K"],
+
+      ["Jul", "OTR", 1200, "K"],
+
+      ["Aug", "SLR", 4000, "K"],
+
+      ["Aug", "ENR", 800, "K"],
+
+      ["Aug", "OTR", 1190, "K"],
+
+      ["Sep", "SLR", 4000, "K"],
+
+      ["Sep", "ENR", 800, "K"],
+
+      ["Sep", "OTR", 1190, "K"],
+    ];
+
+    let expenseArray = [];
+
+    findInconsistency();
+
+    function findInconsistency() {
+      transactionLog.forEach((log, index) => {
+        let monthlyExpense = {
+          month: "",
+          expense: 0,
+        };
+
+        if (log[3] === "M") {
+          log[2] = log[2] * 1000;
+        }
+
+        if (transactionLog[index + 1]) {
+          monthlyExpense.month = transactionLog[index][0];
+
+          monthlyExpense.expense = transactionLog[index][2];
+
+          if (
+            transactionLog[index][0].toLowerCase() ===
+            transactionLog[index + 1][0].toLowerCase()
+          ) {
+            monthlyExpense.expense += transactionLog[index + 1][2];
+            if (
+              transactionLog[index + 2] &&
+              transactionLog[index + 1][0].toLowerCase() ===
+              transactionLog[index + 2][0].toLowerCase()
+            ) {
+              monthlyExpense.expense += transactionLog[index + 2][2];
+            }
+
+            expenseArray.push(monthlyExpense);
+          }
+        }
+      });
+      console.log(expenseArray);
+    }
+  </script>
+</body>
+
+</html>

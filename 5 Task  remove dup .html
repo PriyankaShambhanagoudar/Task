@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Duplicates from an array</title>
+  </head>
+  <body>
+    <script>
+      let obj = { name: "Delhi" },
+        obj2 = obj,
+        obj3 = { name: "Delhi" };
+
+      let array1 = ["Bangalore", "Mysore", "Hubli", "Dharwad", "Belguam", obj],
+        array2 = ["Delhi", "Mumbai", "Pune", "Mysore", "Belguam", obj3];
+
+      //const result = [...new Set(array1.concat(array2)) ];
+      let result = new Set([...array1, ...array2]);
+      let result2 = [...result];
+
+      //console.log(result2);
+
+      /////////////////////////////////////////////////////////////////
+      const removeDupObj = result2.reduce((acc, mov) => {
+        let x = JSON.stringify(mov);
+        if (!acc.includes(x)) {
+          acc.push(x);
+        }
+        return acc;
+      }, []);
+      let result3 = removeDupObj.map((mov) => JSON.parse(mov));
+      console.log(result3);
+
+      /////////////////////////////////////////////////////////////////
+      // const dup = [];
+      // result2.forEach((item)=>{
+      //     if(!dup.includes(item)){
+      //         dup.push(item)
+      //     }
+      // })
+      // console.log(dup);
+
+      /////////////////////////////////////////////////////////////////
+
+      // const remDup =result2.filter((value, index, arr)=>arr.indexOf(value)===index);
+      // console.log(remDup)
+
+      /////////////////////////////////////////////////////////////////
+      /*   function removeDuplicates() {
+
+        //convert object to string 
+      const obj = result2.map( mov=>JSON.stringify(mov) );
+      console.log(obj);
+
+
+      //removed dupliactes object 
+      uniqueSet = new Set(obj);
+      console.log(uniqueSet);
+      
+      //object to array converter 
+      //JSON.parse = converting  JSON object in text format to a javascript object or  JavaScript value or object described by the string.
+      uniqueArray = Array.from(uniqueSet).map( mov=> JSON.parse(mov));
+
+      console.log(uniqueArray);
+      }
+      removeDuplicates() */
+    </script>
+  </body>
+</html>

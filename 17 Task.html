@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task-17</title>
+  </head>
+  <body>
+    <script>
+      /* sum({ a: 2, b: "5px", c: (n) => 2 * n }) === 21
+                     2 +5+(2(7))= 2+5+14=21
+
+                     2+5+ n*2 = 2+5+7(2)=
+
+
+            sum({ a: "30px", b: (n) => n / 2, c: (m) => 2 * m, d: 8 }) === 143;
+            sum({ a: -2, b: (x) => -x, c: "1px" }) === 1;  (-2)  + (-2)+1= -2+2+1= 1 0+1=1
+
+            sum({}) === 0; 0
+
+             Instructions:
+
+            We have an object with multiple numbers on it, which can presented as:
+
+            1) Numbers.
+            2) Strings, measuring CSS pixels.
+            3) Functions, receving a number and returning a new number.
+
+            The elements above can be presented at any order. Please sum the all, considering:
+
+            1) The object is processed in alphabetical order.
+            2) The function receives whatever the subtotal is at the time of executing it.
+            */
+
+      const sum = (data) => {
+        // let add = 0;
+        //const objValue = Object.values(data);
+        /* 
+        objValue.forEach((mov) => {
+          if (typeof mov === "number") {
+            add += mov;
+          } else if (typeof mov === "string") {
+            let x = parseInt(mov);
+            add += x;
+          } else {
+            add += mov(add);
+          }
+        });
+        */
+        // return add;
+        const total = Object.values(data).reduce((acc, mov) => {
+          if (typeof mov === "number") {
+            acc += mov;
+          } else if (typeof mov === "string") {
+            let x = parseInt(mov);
+            acc += x;
+          } else {
+            acc += mov(acc);
+          }
+          return acc;
+        }, 0);
+        return total;
+      };
+
+      console.log(sum({ a: 2, b: "5px", c: (n) => 2 * n }));
+      console.log(sum({ a: "30px", b: (n) => n / 2, c: (m) => 2 * m, d: 8 }));
+      console.log(sum({}));
+
+      /*
+    let x=  [2, 5, (n)=> 2*n]
+    x[0]=2
+    x[2]=(n)=>2*n;  / const add = (n)=>2 *n; add(7)
+    x[2](7)
+
+
+    x = x +y
+    x+=y
+      */
+    </script>
+  </body>
+</html>

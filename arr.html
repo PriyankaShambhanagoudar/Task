@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* let monthlyExpenses = {
+            month: "july",
+            expenses: 6000, } */
+        let transactionLog1 = [
+            ["Jul", "SLR", 4, "M"],
+            ["Jul", "ENR", 0.8, "M"],
+            ["Jul", "OTR", 1200, "K"], //6000
+            ["Aug", "SLR", 4000, "K"],
+            ["Aug", "ENR", 0.8, "M"],
+            ["Aug", "OTR", 1190, "K"], //5990
+            ["Sep", "SLR", 4, "M"],
+            ["Sep", "ENR", 800, "K"],
+            ["Sep", "OTR", 1190, "K"], //5990
+        ];
+        let res = [];
+        transactionLog1.forEach((data, i) => {
+            if (i == 0 || transactionLog1[i][0] !== transactionLog1[i - 1][0]) {
+                let x = transactionLog1
+                    .filter((m) => m[0].includes(data[0]))
+                    .reduce(
+                        (acc, mov, i) => {
+                            acc.month = mov[0];
+                            acc.expenses += conv(mov);
+
+                            return acc;
+                        },
+                        {
+                            month: "",
+                            expenses: 0,
+                        }
+                    );
+                res.push(x);
+            }
+        });
+        res.sort((a, b) => b.expenses - a.expenses);
+        let finial = res[0].month;
+        console.log(finial);
+
+        function conv(log) {
+            if (log[3] === "M") {
+                return log[2] * 1000;
+            } else {
+                return log[2];
+            }
+        }
+    </script>
+</body>
+
+</html>

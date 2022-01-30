@@ -1,0 +1,9 @@
+user={
+date: 1641802008220
+id: "616705cab2c2d032cc3f7f6c"
+isAdmin: true
+isLocked: false
+roles: (2) ['SuperAdmin', 'Controller']
+username: "admin"
+_id: "0MIFDzRIBfqiB71qry"
+}

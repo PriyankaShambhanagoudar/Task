@@ -1,0 +1,26 @@
+ 
+ sum({a: 2, b: '5px', c: n => 2 * n}) === 21;
+
+ sum({a: '30px',
+      b: n => n / 2,
+      c: m => 2 * m,
+      d: 8
+     }) === 143;
+
+ sum({ a: -2, b: x => -x, c: '1px' }) === 1;
+
+ sum({}) === 0;
+
+
+Instructions:
+
+We have an object with multiple numbers on it, which can presented as:
+
+1) Numbers.
+2) Strings, measuring CSS pixels.
+3) Functions, receving a number and returning a new number.
+
+The elements above can be presented at any order. Please sum the all, considering:
+
+1) The object is processed in alphabetical order.
+2) The function receives whatever the subtotal is at the time of executing it.

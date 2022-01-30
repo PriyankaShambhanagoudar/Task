@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        We have conducted a written survey. Unfortunetely, not all prticipants have answered according to the requirements so now we have to adapt the results to comply with our online database.
+
+        * Hint: .map() craetes a new instance of an array while .foreach doesn't.
+         */
+
+      adaptResults({ name: "Sky Lynx", answers: ["true", 0, "no"] });
+      //[
+      //   {
+      //     name: "Sky Lynx",
+      //     answers: {
+      //       hasChildren: true,
+      //       hasDrivingLicense: false,
+      //       higherEducation: false
+      //     }
+      //   }
+      // ]
+
+      function adaptResults(...data) {
+        console.log(data);
+        const res = data.map((mov) => {
+          return { name: mov.name, answers: adapterAns(mov.answers) };
+        });
+        return res;
+      }
+      function adapterAns(ans) {
+        const questions = [
+          "hasChildren",
+          "hasDrivingLicense",
+          "higherEducation",
+        ];
+        const questionReduce = questions.reduce((acc, mov, i) => {
+          acc[mov] = convertBoolean(ans[i]);
+          return acc;
+        }, {});
+        return questionReduce;
+      }
+      function convertBoolean(number) {
+        const numbers = ["true", 1, "yes"];
+        return numbers.includes(number);
+      }
+      console.log(
+        adaptResults(
+          { name: "Moonsong Nyx", answers: [1, 0, 1] },
+          { name: "Cloverdusr Horsebaler", answers: ["yes", "no", "no"] } // add(a,b,c)   function add ([...x]) { x= [a,b,c]}  [a,b,c]
+        )
+      );
+      // [
+      //   {
+      //     name: "Moonsong Nyx",
+      //     answers: {
+      //       hasChildren: true,
+      //       hasDrivingLicense: false,
+      //       higherEducation: true,
+      //     },
+      //   },
+      //   {
+      //     name: "Cloverdusr Horsebaler",
+      //     answers: {
+      //       hasChildren: true,
+      //       hasDrivingLicense: false,
+      //       higherEducation: false,
+      //     },
+      //   }
+      // ];
+    </script>
+  </body>
+</html>

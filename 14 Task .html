@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task -14</title>
+  </head>
+  <body>
+    <script>
+      /* hardSwitch({ Hello: "World" } === { wORLD: "hELLO" });
+
+
+                  hardSwitch({
+                    challengeStatus: "almostOver",
+                    nextThingIs: "checkScore",
+                  }) === { ALMOSToVER: "CHALLENGEsTATUS", CHECKsCORE: "NEXTtHINGiS" }; */
+
+      const hardSwitch = (data) => {
+        let Switch = Object.keys(data).reduce((acc, cur) => {
+          let rev = reverse(cur);
+          acc[reverse(data[cur])] = rev;
+          return acc;
+        }, {});
+        console.log(Switch);
+      };
+
+      function reverse(string) {
+        return string
+          .split("")
+          .map((cur) => {
+            return cur === cur.toUpperCase()
+              ? cur.toLowerCase()
+              : cur.toUpperCase();
+          })
+          .join("");
+      }
+      hardSwitch({ Hello: "World" });
+      hardSwitch({
+        challengeStatus: "almostOver",
+        nextThingIs: "checkScore",
+      });
+    </script>
+  </body>
+</html>

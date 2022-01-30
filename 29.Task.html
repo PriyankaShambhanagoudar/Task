@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+              Due to new import tax, some of our materials now cost £5 more. Update the prices of those products, production of which involves the given materials.
+            */
+      /*     console.log("1st approach");
+      updatePrices(
+        [
+          { type: "chair", made: "timber", price: 20 },
+          { type: "table", made: "timber", price: 30 },
+        ],
+        "metal ore",
+        "timber"
+      ); // 'A chair now costs £25. A table now costs £35.'
+
+      updatePrices(
+        [{ type: "candle", made: "wax", price: 5 }],
+        "wax",
+        "cotton"
+      ); // 'A candle now costs £10.'
+
+      updatePrices(
+        [
+          { type: "tooth paste", made: "some chemicals", price: 2 },
+          { type: "earplugs", made: "wax", price: 3 },
+        ],
+        "glass",
+        "cotton"
+      ); // 'Same prices!'
+
+      updatePrices(
+        [
+          { type: "toilet paper roll", made: "paper", price: 1 },
+          { type: "thick bleach", made: "some chemicals", price: 2 },
+        ],
+        "paper",
+        "cotton"
+      ); // 'A toilet- paper roll now costs £6.'
+
+      function updatePrices(arr, ...str) {
+        let compare = arr.reduce((acc, mov, i, array) => {
+          if (str.includes(mov.made)) {
+            acc.push(mov);
+          }
+          return acc;
+        }, []);
+        if (compare.length === 0) {
+          console.log("Same prices!");
+        } else {
+          const add = compare.map((mov) => {
+            const sum = `A ${mov.type} now costs £${mov.price + 5}`;
+            console.log(sum);
+          });
+        }
+      } */
+      //////////////////////////////////////////////////////////////////////
+      /*       function updatePrices1(product, ...materials) {
+        let moreExpensiveProducts = product.filter((product) =>
+          materials.includes(product.made)
+        );
+        return moreExpensiveProducts.length > 0
+          ? moreExpensiveProducts
+              .map(
+                (product) => `A ${product.type} now costs £${product.price + 5}`
+              )
+              .join(" ")
+          : "Same prices!";
+      }
+      console.log("2nd approach");
+      console.log(
+        updatePrices1(
+          [
+            { type: "chair", made: "timber", price: 20 },
+            { type: "table", made: "timber", price: 30 },
+          ],
+          "metal ore",
+          "timber"
+        )
+      );
+      console.log(
+        updatePrices1(
+          [{ type: "candle", made: "wax", price: 5 }],
+          "wax",
+          "cotton"
+        )
+      );
+      console.log(
+        updatePrices1(
+          [
+            { type: "tooth paste", made: "some chemicals", price: 2 },
+            { type: "earplugs", made: "wax", price: 3 },
+          ],
+          "glass",
+          "cotton"
+        )
+      );
+      console.log(
+        updatePrices1(
+          [
+            { type: "toilet paper roll", made: "paper", price: 1 },
+            { type: "thick bleach", made: "some chemicals", price: 2 },
+          ],
+          "paper",
+          "cotton"
+        )
+      ); */
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      function updatePrices2(arr, ...material) {
+        let some = arr.map((mov) => material.includes(mov.made));
+        console.log(some);
+        if (some.length === 0) {
+          console.log("Same prices!");
+        } else {
+          const add = some.map((mov) => {
+            const sum = `A ${mov.type} now costs £${mov.price + 5}`;
+            console.log(sum);
+          });
+        }
+      }
+
+      //      if (compare.length === 0) {
+      //     console.log("Same prices!");
+      //   } else {
+      //     const add = compare.map((mov) => {
+      //       const sum = `A ${mov.type} now costs £${mov.price + 5}`;
+      //       console.log(sum);
+      //     });
+
+      // }
+
+      updatePrices2(
+        [
+          { type: "toilet paper roll", made: "paper", price: 1 },
+          { type: "thick bleach", made: "some chemicals", price: 2 },
+        ],
+        "paper",
+        "cotton"
+      );
+    </script>
+  </body>
+</html>

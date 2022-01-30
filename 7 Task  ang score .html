@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //task 7
+      /*  const getAvgScore = (name, ...nums) => {
+        const avg = nums.reduce((acc, mov) => {
+          return acc + mov / nums.length;
+        }, 0);
+
+        console.log(`The AvgScore for ${name} is ${avg}`);
+      };
+      getAvgScore("Jhon", 85, 43, 78, 59);
+      //   o/p :The AvgScore for Jhon is 66.25;
+      getAvgScore(" Peter ", 53, 29);
+      //   o/p :The AvgScore for Peter is 41 */
+
+      /////////////////////////////////////////////////////
+
+      //Task 8
+
+      const getAvgScore1 = (...num) => {
+        const number = num.filter((m) => typeof m === "number");
+
+        const avg = number.reduce((acc, mov) => {
+          return acc + mov / number.length;
+        }, 0);
+
+        const filterString = num.filter((n) => typeof n === "string");
+
+        console.log(`The AvgScore for ${filterString} is ${avg}`);
+      };
+
+      getAvgScore1(85, 43, 78, "Jhon", 59);
+      //   o/p :The AvgScore for Jhon is 66.25;
+      //  getAvgScore1(53, " Peter ", 53, 29);
+      //   o/p :The AvgScore for Peter is 41
+    </script>
+  </body>
+</html>

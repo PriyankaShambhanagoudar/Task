@@ -1,0 +1,7 @@
+We have a bunh of numbers as strings. We want to get all their (sorted) multiples within a given limit.
+
+getMultiplesOf (['5', '7'], '23') === ['5', '7', '10', '14', '15', '20', '21'];
+
+getMultiplesOf (['7', '3', '8'], '17') === ['3', '6', '7', '8', '9', '12', '14', '15', '16'];
+
+getMultiplesOf (['7', '3', '8'], '2')  === [];

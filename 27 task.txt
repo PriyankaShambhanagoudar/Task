@@ -1,0 +1,12 @@
+Take a float number and check if each digit is divisble by the digit on the left.
+ Plaese ignore the decimals, if any.
+
+isDivisibleByPrevDigit(2026.34) === [false, true, false, true]
+
+isDivisibleByPrevDigit(73312.54) === [false, false, true, false, true]
+
+isDivisibleByPrevDigit(632) === [true, false, false]
+
+isDivisibleByPrevDigit(1337.12) === [false, true, true, false]
+
+isDivisibleByPrevDigit(0) === [false]

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 13</title>
+  </head>
+  <body>
+    <script>
+      /*
+      getConsecutiveChains(  1235678  ) === [123,5678];
+
+      getConsecutiveChains(34589) === [345, 89];
+
+      getConsecutiveChains(1245679) === [12, 4567,9];
+              */
+
+      const getConsecutiveChains = (data) => {
+        const arr = data
+          .toString()
+          .split("")
+          .map((num) => parseInt(num))
+          .reduce((r, v, i, a) => {
+            if (i && v === a[i - 1] + 1) {
+              r[r.length - 1].push(v);
+            } else {
+              r.push([v]);
+            }
+            return r;
+          }, [])
+          .map((m) => +m.join(""));
+        console.log(arr);
+      };
+      getConsecutiveChains(1235678);
+
+      getConsecutiveChains(34589);
+
+      getConsecutiveChains(1245679);
+    </script>
+  </body>
+</html>

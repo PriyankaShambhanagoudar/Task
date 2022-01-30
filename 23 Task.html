@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+  </head>
+  <body>
+    <script>
+      /*  There was an apple picking contest held among elementary schoolers. Return the winner according to how many apples each picked against the time it took them (divide those two).
+
+                   The list of all participants consists of objects with their name,  time they were picking apples , apples picked  and , unfortunately, apples smashed(the kids were in hurry). They can also more apples smashed than they have picked.
+
+                   GetCompetitionWinner([
+                     { name: 'Susie’, time: '1 hours’, picked: 30, smashed: 3},
+                     { name: 'Tariq’, time: '1 hours’, picked: 28, smashed: 4},
+                     { name: 'Poppy’, time: ‘0.5 (30 min)  hours’, picked: 30, smashed: 34},
+                   ]) //=== ’Susie’;
+
+                   GetCompetitionWinner([
+                     { name: ‘Katti’, time: ‘2 hours’, picked: 33, smashed: 1},
+                     { name: ‘Omar’, time: ‘1 hours’, picked: 29, smashed: 0},
+                     { name: ‘Judy’, time: ‘2 hours’, picked: 18, smashed: 20},
+                   ]) //=== ’Omar’;
+
+                   GetCompetitionWinner([
+                     { name: ‘Ivan’, time: ‘1 hours’, picked: 13, smashed: 10},
+                     { name: ‘Marika’, time: ‘0.5 hours (30 min)  ’, picked: 17, smashed: 13},
+                     { name: ‘Hans’, time: ‘2 hours’, picked: 25, smashed: 4},
+                   ]) //=== ’Hans’;
+
+                   */
+      function GetCompetitionWinner(players) {
+        let topPlayers = players.reduce((topPlayer, player) => {
+          return getScore(player) > getScore(topPlayer) ? player : topPlayer;
+        });
+        return topPlayers.name;
+      }
+
+      function getScore({ picked, smashed, time }) {
+        // let picked = player.picked;
+        //let smashed = player.smashed;
+        // let time = parseInt(player.time);
+        let actalTime = parseInt(time);
+        return (picked - smashed) / actalTime;
+      }
+      console.log("1st Approach");
+
+      console.log(
+        GetCompetitionWinner([
+          { name: "Susie", time: "1 hours", picked: 30, smashed: 3 }, //27
+          { name: "Tariq", time: "1 hours", picked: 28, smashed: 4 }, //24
+          { name: "Poppy", time: "0.5 hours", picked: 30, smashed: 34 }, //0.1
+        ])
+      ); //=== 'Susie';
+      console.log(
+        GetCompetitionWinner([
+          { name: "Katti", time: "2 hours", picked: 33, smashed: 1 },
+          { name: "Omar", time: "1 hours", picked: 29, smashed: 0 }, //29
+          { name: "Judy", time: "2 hours", picked: 18, smashed: 20 }, //-2
+        ])
+      );
+      console.log(
+        GetCompetitionWinner([
+          { name: "Ivan", time: "1 hours", picked: 13, smashed: 10 }, //3
+          { name: "Marika", time: "0.5 hours", picked: 17, smashed: 13 }, //8
+          { name: "Hans", time: "2 hours", picked: 25, smashed: 4 }, //10.5
+        ])
+      );
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function GetCompetitionWinner1(data) {
+        data.forEach((obj) => {
+          obj["result"] = getScore1(obj);
+        });
+        const highestNumer = data.sort((a, b) => b.result - a.result);
+        return highestNumer[0].name;
+      }
+
+      function getScore1(player) {
+        let picked = player.picked;
+        let smashed = player.smashed;
+        let time = +player.time.replace(/[^0-9\.]+/g, "");
+        return (picked - smashed) / time;
+      }
+      console.log("2nd Approach");
+
+      console.log(
+        GetCompetitionWinner1([
+          { name: "Susie", time: "1 hours", picked: 30, smashed: 3 }, //27
+          { name: "Tariq", time: "1 hours", picked: 28, smashed: 4 }, //24
+          
+          { name: "Poppy", time: "0.5 hours", picked: 30, smashed: 34 }, //0.1
+        ])
+      );
+      console.log(
+        GetCompetitionWinner1([
+          { name: "Katti", time: "2 hours", picked: 33, smashed: 1 },
+          { name: "Omar", time: "1 hours", picked: 29, smashed: 0 }, //29
+          { name: "Judy", time: "2 hours", picked: 18, smashed: 20 }, //-2
+        ])
+      );
+      console.log(
+        GetCompetitionWinner1([
+          { name: "Ivan", time: "1 hours", picked: 13, smashed: 10 }, //3
+          { name: "Marika", time: "0.5 hours", picked: 17, smashed: 13 }, //8
+          { name: "Hans", time: "2 hours", picked: 25, smashed: 4 }, //10.5
+        ])
+      );
+    </script>
+  </body>
+</html>

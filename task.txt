@@ -1,0 +1,19 @@
+calculateTotal({
+a: 1,
+b:{ c: -2, d: 4},
+e: 3
+}) === 6;
+
+calculateTotal({
+ foo:{
+    bar: { buzz: 4, bla: -1},
+    fizz: 2
+}
+}) === 5;
+
+
+calculateTotal({
+usOpen: {man: 2, woman: 4, doubles: 1},
+wimbledon: 3,
+rolandGarros: {man: 3, woman: 1}
+}) === 14;

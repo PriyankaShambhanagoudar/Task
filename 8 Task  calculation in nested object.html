@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculation in nestesd objects</title>
+  </head>
+  <body>
+    <script>
+      /*
+            calculateTotal({
+               a: 1,
+               b: { c: -2, d: 4 },
+               e: 3,
+             }) === 6;
+
+             calculateTotal({
+               foo: {
+                 bar: { buzz: 4, bla: -1 },
+                 fizz: 2,
+               },
+             }) === 5;
+     
+             calculateTotal({
+
+               usOpen: { man: 2, woman: 4, doubles: 1 },
+               wimbledon: 3,
+               rolandGarros: { man: 3, woman: 1 },
+             }) === 14;
+             */
+
+      const inp = {
+        usOpen: { man: 2, woman: 4, doubles: 1 },
+        wimbledon: 3,
+        rolandGarros: { man: 3, woman: 1 },
+      };
+
+      const calculateTotal = function (data) {
+        return Object.values(data).reduce((acc, mov) => {
+          return typeof mov === "object"
+            ? acc + calculateTotal(mov)
+            : acc + mov;
+        }, 0);
+      };
+      console.log(calculateTotal(inp));
+    </script>
+  </body>
+</html>

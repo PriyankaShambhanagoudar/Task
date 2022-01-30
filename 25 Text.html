@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text 25</title>
+  </head>
+  <body>
+    <script>
+      /*  We have a bunh of numbers as strings. We want to get all their (sorted) multiples within a given limit.
+
+                         getMultiplesOf(["5", "7"], "23") ===
+                           ["5", "7", "10", "14", "15", "20", "21"];
+
+                         getMultiplesOf(["7", "3", "8"], "17") ===
+                           ["3", "6", "7", "8", "9", "12", "14", "15", "16"];
+
+                         getMultiplesOf(["7", "3", "8"], "2") === [];
+
+                         getMultiplesOf(["4", "2", "9"], "15") ===
+                           ["2", "4", "6", "8", "9", "10", "12", "14"]; */
+
+      function getMultiplesOf(arr, string) {
+        obj.push(...x);
+
+        return obj.sort((a, b) => a - b).map((number) => number.toString());
+      }
+
+      function multiplication(num, limitNum) {
+        let res = [];
+        for (let i = num; i < limitNum; i += num) {
+          res.push(i);
+        }
+        return res;
+      }
+      console.log("1st approach", getMultiplesOf(["5", "7"], "23")); //  ["5", "7", "10", "14", "15", "20", "21"];
+      console.log(getMultiplesOf(["7", "3", "8"], "17"));
+      console.log(getMultiplesOf(["4", "2", "9"], "15"));
+      console.log(getMultiplesOf(["7", "3", "8"], "2"));
+
+      //////////////////////////////////////////////////////////////
+    </script>
+  </body>
+</html>

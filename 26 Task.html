@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*      We have two arrays, and we want to see what the result of adding the numbers that only show up in one of them.
+
+      addDiff([1, 2, 3], [2, 3, 4]) === 5;
+
+      addDiff([-3, 2, 2, 5, 6], [1, 5, 6, 7]) === 9;
+
+      addDiff([], [2, 3]) === 5;
+
+      addDiff([3, 2, 4], []) === 9;
+
+      addDiff([3, 2, 4], [3, 2, 4]) === 0; */
+
+      function addDiff(data, data1) {
+        const filterArray = data.filter((arr) => !data1.includes(arr));
+        const filterArray1 = data1.filter((arr1) => !data.includes(arr1));
+
+        const con = filterArray.concat(filterArray1);
+        const add = con.reduce((num, num1) => num + num1, 0);
+        return add;
+      }
+      console.log("1st approach ");
+      console.log(addDiff([1, 2, 3], [2, 3, 4]));
+      console.log(addDiff([-3, 2, 2, 5, 6], [1, 5, 6, 7]));
+      console.log(addDiff([], [2, 3]));
+      console.log(addDiff([3, 2, 4], []));
+      console.log(addDiff([3, 2, 4], [3, 2, 4]));
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function addDifference(data, data1) {
+        let uniqueArray = getUnique(data, data1);
+        let uniqueArray1 = getUnique(data1, data);
+        return [...uniqueArray, ...uniqueArray1].reduce(
+          (total, value) => total + value,
+          0
+        );
+      }
+
+      function getUnique(array, array1) {
+        return array.filter((world) => !array1.includes(world));
+      }
+      console.log("2nd approach ");
+      console.log(addDifference([1, 2, 3], [2, 3, 4]));
+      console.log(addDifference([-3, 2, 2, 5, 6], [1, 5, 6, 7]));
+      console.log(addDifference([], [2, 3]));
+      console.log(addDifference([3, 2, 4], []));
+      console.log(addDifference([3, 2, 4], [3, 2, 4]));
+    </script>
+  </body>
+</html>

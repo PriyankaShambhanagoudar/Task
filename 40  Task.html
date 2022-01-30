@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function spinWords(str) {
+      //     const arr = str.split(" ");
+      //     const data = arr.map((str) => {
+      //       if (str.length >= 5) {
+      //         return str.split("").reverse().join("");
+      //       } else {
+      //         return str;
+      //       }
+      //     });
+      //     const x = data.join(" ").toString();
+      //     console.log(x);
+      //   }
+      //spinWords("This is another test")
+      //spinWords("This is test")
+      //spinWords("Hey fellow warriors")
+
+      function spinWords(str) {
+        return str
+          .split(" ")
+          .map((str) =>
+            str.length >= 5 ? str.split("").reverse().join("") : str
+          )
+          .join(" ");
+      }
+
+      console.log(spinWords("This is another test"));
+      console.log(spinWords("This is test"));
+      console.log(spinWords("Hey fellow warriors"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find smallest word</title>
+  </head>
+  <body>
+    <script>
+      //find smallest word
+      const str = "Don't step on the broken glass.";
+
+      let word = str
+        .split(" ")
+        .reduce((acc, mov) => (acc.length <= mov.length ? acc : mov));
+      console.log(word);
+    </script>
+  </body>
+</html>

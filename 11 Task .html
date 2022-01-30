@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 11</title>
+  </head>
+  <body>
+    <script>
+      let In = [];
+      let Out = [];
+      const intialBusPassengrs = (data, data1) => {
+        for (let i = 0, len = data.length; i < data.length; i++) {
+          In.push(+data[i].in);
+          Out.push(+data[i].out);
+        }
+        const sum =
+          data1 -
+          In.reduce((a, b) => a + b, 0) +
+          Out.reduce((a, b) => a + b, 0);
+        console.log(sum);
+      };
+
+      intialBusPassengrs(
+        [
+          { in: "3", out: "2" },
+          { in: "0", out: "4" },
+        ],
+        "7"
+      );
+      intialBusPassengrs([{ in: "8", out: "5" }], "4");
+      intialBusPassengrs(
+        [
+          { in: "5", out: "8" },
+          { in: "19", out: "16" },
+          { in: "7", out: "9" },
+          { in: "11", out: "15" },
+        ],
+        "12"
+      );
+      ////////////////////////////////////////////////////////////////////////////////////////
+      const initialBusPassengers = function (stops, finalPassengersStr) {
+        return stops.reduce((initialPassengrs, stop) => {
+          return initialPassengrs + Number(stop.out) - Number(stop.in);
+        }, +finalPassengersStr);
+      };
+      console.log(
+        initialBusPassengers(
+          [
+            { in: "3", out: "2" },
+            { in: "0", out: "4" },
+          ],
+          "7"
+        )
+      );
+      console.log(initialBusPassengers([{ in: "8", out: "5" }], "4"));
+      console.log(
+        initialBusPassengers(
+          [
+            { in: "5", out: "8" },
+            { in: "19", out: "16" },
+            { in: "7", out: "9" },
+            { in: "11", out: "15" },
+          ],
+          "12"
+        )
+      );
+    </script>
+  </body>
+</html>

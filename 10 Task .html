@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 10</title>
+  </head>
+  <body>
+    <script>
+      /*
+      1. Since JavaScript array type is actually a special object type, comparing two arrays directly with === or == operator will always return false:
+      2. This is because JavaScript object type compares the references for the variables instead of just the values. When you need to check for the equality of two arrays, you’ll need to write some code to work around the equality operators == and === result.
+      */
+      //   areEqual({ a: 1, b: 2 }, { a: 1, b: 2 }) === true;
+
+      //   areEqual({ a: 2, b: 1 }, { a: 1, b: 2 }) === true;
+
+      //   areEqual({ a: 2, b: 2 }, { a: 1, b: 2 }) === false;
+
+      //   areEqual({}, {}) === true;
+
+      //   areEqual({ name: "Peter" }, { lastname: "Peter" }) === true;
+
+      //   areEqual({ name: "John" }, { lastname: "Peter" }) === false;
+
+      const areEqual = (data, data1) => {
+        const obj = Object.values(data).sort((a, b) => a - b);
+        console.log(obj);
+        const obj1 = Object.values(data1).sort((a, b) => a - b);
+        console.log(obj, obj1);
+
+        // const x = JSON.stringify(obj) === JSON.stringify(obj1);
+
+        const x =
+          obj.length == obj1.length &&
+          obj.every(function (element, index) {
+            return element === obj1[index];
+          });
+        console.log(x);
+      };
+
+      areEqual({ a: 1, b: 2 }, { a: 1, b: 2 });
+      areEqual({ a: 2, b: 1 }, { a: 1, b: 2 });
+      areEqual({ a: 2, b: 2 }, { a: 1, b: 2 });
+      areEqual({}, {});
+      areEqual({ name: "Peter" }, { lastname: "Peter" });
+      areEqual({ name: "John" }, { lastname: "Peter" });
+    </script>
+  </body>
+</html>

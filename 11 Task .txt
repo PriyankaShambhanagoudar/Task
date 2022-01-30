@@ -1,0 +1,16 @@
+
+intialBusPassengrs([{in: '3', out: '2'}, {in: '0', out: '4'}], '7') === '10';
+
+initialBusPassengrs([{in: '8', out: '5'}, '4']) === '1';
+
+
+
+initialBusPassengrs([
+		     {in: '5', out: '8'},
+		     {in: '19', out: '16'},
+                     {in: '7', out: '9'},
+                     {in: '11', out: '15'}], '12') === '18';
+                                 
+
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      function whoIsYounger(person1, person2) {
+        const person_1_Birth = person1.dob;
+        const birthDateReverse = person_1_Birth.split("-").reverse().join("-");
+        const date1 = new Date(birthDateReverse);
+        const minutesOfBirth1 = Date.now() - date1.getTime();
+        person1["ageInSec"] = minutesOfBirth1;
+
+        const person_2_Birth = person2.dob;
+        const birthDateReverse2 = person_2_Birth.split("-").reverse().join("-");
+        const date2 = new Date(birthDateReverse2);
+        const minutesOfBirth2 = Date.now() - date2.getTime();
+        person2["ageInSec"] = minutesOfBirth2;
+
+        const arr = [];
+        arr.push(person1);
+        arr.push(person2);
+
+        const younger = arr.sort((a, b) => a.ageInSec - b.ageInSec);
+        const youngerPersonName = arr[0].name;
+
+        if (person1.ageInSec === person2.ageInSec) {
+          console.log("Same age  ");
+        } else {
+          console.log(`${youngerPersonName} is yonger`);
+        }
+      }
+      */
+
+      whoIsYounger(
+        { name: "Scarlet Johansson", dob: "22-11-1984" },
+        { name: "Tom Cruise", dob: "03-07-1962" }
+      ); // 'Scarlet Johansson is younger'
+
+      whoIsYounger(
+        { name: "Tom Hanks", dob: "09-07-1956" },
+        { name: "Will Smith ", dob: "25-09-1968" }
+      ); // 'Will Smith  is younger'
+
+      whoIsYounger(
+        { name: "Eva Longoria", dob: "15-03-1975" },
+        { name: "Will.i.am ", dob: "15-03-1975" }
+      ); // 'Same age'
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      function whoIsYounger(celeb1, celeb2) {
+        let celeb1Time = getTime(celeb1.dob);
+        let celeb2Time = getTime(celeb2.dob);
+        return celeb1Time === celeb2Time
+          ? "Same age!"
+          : celeb1Time < celeb2Time
+          ? `${celeb2.name} is younger`
+          : `${celeb1.name} is younger`;
+      }
+
+      function getTime(dob) {
+        let date = new Date(dob.split("-").reverse().join("-"));
+        return date.getTime();
+      }
+      console.log(
+        whoIsYounger(
+          { name: "Scarlet Johansson", dob: "22-11-1984" },
+          { name: "Tom Cruise", dob: "03-07-1962" }
+        )
+      );
+
+      console.log(
+        whoIsYounger(
+          { name: "Tom Hanks", dob: "09-07-1956" },
+          { name: "Will Smith ", dob: "25-09-1968" }
+        )
+      );
+
+      console.log(
+        whoIsYounger(
+          { name: "Eva Longoria", dob: "15-03-1975" },
+          { name: "Will.i.am ", dob: "15-03-1975" }
+        )
+      );
+    </script>
+  </body>
+</html>

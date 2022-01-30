@@ -1,0 +1,17 @@
+what is z index
+
+what is responsive web design 
+How JavaScript is synchronous.
+
+difference b\w async & sync
+
+async & await 
+
+oops types & expain
+
+
+class based component & function based component
+
+react life sycle 
+
+useState & useEffect

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task 12.1</title>
+  </head>
+  <body>
+    <script>
+      const counts = {};
+      const sort = (data) => {
+        const obj = Object.values(data);
+        obj.forEach(function (x) {
+          counts[x] = (counts[x] || 0) + 1;
+        });
+
+        console.log(counts);
+        const key = Object.keys(counts).sort((a, b) => {
+          b - a;
+        });
+        console.log(key);
+      };
+      sort({ a: 1, b: 2, c: 1 });
+      // sort({
+      //   firstScore: "Good",
+      //   secondScore: "Excellent",
+      //   thirdScore: "Excellent",
+      // });
+      // sort({
+      //   spring: "Very nice",
+      //   summer: "Awesome",
+      //   autumn: "Very nice",
+      //   winter: "Horrible",
+      // });
+
+      /*    let arr = [
+        { spring: "Very nice" },
+        { summer: "Awesome" },
+        { autumn: "Very nice" },
+        { winter: "Horrible" },
+      ];
+      // let arr = [1, 2, 3, 4 ]
+      let object = {};
+
+      arr.push((object["snowy"] = "Good"));
+      console.log(arr); */
+    </script>
+  </body>
+</html>

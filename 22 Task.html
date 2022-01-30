@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function productOfAllOtherNumbers(arr) {
+        let beforeProductSoFar = 1;
+        const productsOfBeforeNumbers = [];
+        for (let i = 0; i < arr.length; i++) {
+          productsOfBeforeNumbers[i] = beforeProductSoFar;
+          beforeProductSoFar *= arr[i];
+        }
+        //console.log(productsOfBeforeNumbers);
+
+        let afterProductSoFar = 1; //12
+
+        const productsOfAfterNumber = [];
+        for (let j = arr.length - 1; j > -1; j--) {
+          productsOfAfterNumber[j] = afterProductSoFar;
+          afterProductSoFar *= arr[j];
+        }
+        //console.log(productsOfAfterNumber);
+
+        const products = [];
+        for (let k = 0; k < arr.length; k++) {
+          products[k] = productsOfBeforeNumbers[k] * productsOfAfterNumber[k];
+        }
+        return products;
+      }
+      console.log("1st Approach ", productOfAllOtherNumbers([1, 2, 3, 4])); // [24,12, 8, 6]
+      console.log(productOfAllOtherNumbers([5, 8, 7, 10]));
+      console.log(productOfAllOtherNumbers([0, 1, 2, 4]));
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function productOfAllOtherNumbers1(data) {
+        let res = [];
+        for (let i = 0; i < data.length; i++) {
+          let prod = 1;
+          for (let j = 0; j < data.length; j++) {
+            if (i !== j) {
+              prod *= data[j];
+            }
+          }
+          res.push(prod);
+        }
+        return res;
+      }
+      console.log("2nd  Approach", productOfAllOtherNumbers1([1, 2, 3, 4]));
+      console.log(productOfAllOtherNumbers1([5, 8, 7, 10]));
+      console.log(productOfAllOtherNumbers1([0, 1, 2, 4]));
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function productOfAllOtherNumbers2(num) {
+        let result = [];
+        const arr = num.filter((mov) => {
+          let prod = 1;
+          for (let i = 0; i < num.length; i++) {
+            if (mov !== num[i]) {
+              prod *= num[i];
+            }
+          }
+          result.push(prod);
+        });
+        return result;
+      }
+
+      console.log("3rd  Approach", productOfAllOtherNumbers2([1, 2, 3, 4]));
+      console.log(productOfAllOtherNumbers2([5, 8, 7, 10]));
+      console.log(productOfAllOtherNumbers2([0, 1, 2, 4]));
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function productOfAllOtherNumbers3(data) {
+        let Array = [];
+        for (let i = 0; i < data.length; i++) {
+          let arr = arraySorting(data, i).reduce((acc, mov) => (acc *= mov), 1);
+
+          Array.push(arr);
+        }
+        return Array;
+      }
+      function arraySorting(arr, index) {
+        return arr.filter((mov) => mov !== arr[index]);
+      }
+
+      console.log("4th  Approach", productOfAllOtherNumbers3([1, 2, 3, 4]));
+      console.log(productOfAllOtherNumbers3([5, 8, 7, 10]));
+      console.log(productOfAllOtherNumbers3([0, 1, 2, 4]));
+    </script>
+  </body>
+</html>

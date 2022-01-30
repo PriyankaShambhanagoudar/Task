@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function palindromic(data) {
+            const str = data.split('').reverse().join('')
+            //  console.log(str);
+
+            let exp = data.replace(/\s/g, '')
+            //  console.log(exp);
+
+        }
+
+        // palindromic('rotor')
+        // palindromic('kayak')
+        // palindromic('reviver')
+        // palindromic('racecar')
+        // palindromic('redivider')
+        // palindromic('deified')
+        // palindromic('civic')
+        // palindromic('level')
+        // palindromic("waas tii tca aws")
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+        /* 
+               Given a string, write a function to check if it is a permutation of a palindrome.
+       
+                Palindromes:-
+                .level
+                .Hannah
+                .rotator
+                .my gym
+                .no melon, no lemon
+                .Was it a cat I saw?
+       
+                Permutations of palindromes
+       
+               .lleev
+               .hnnaha
+               .rootart
+               .ym myg
+               .on meoln no loenm
+               .wass tii tca aws 
+               */
+
+        // isPalindrome("level"); // true
+        // isPalindrome("on meoln no loenm"); // true
+        //  isPalindrome("waas tii tca aws"); // true     
+        // isPalindrome("hnnaha"); // true
+        // isPalindrome("elisabeth"); // false
+        // isPalindrome("becky"); // false
+
+
+        //number of repeated char
+        //how many  odd and even char
+        //single
+
+
+        function isPalindrome(char) {
+            /* let count = char.split('');
+             // console.log(count);
+              let obj = {};
+             for (let i = 0; i < count.length; i++) {
+                 let rep = obj[count[i]]
+                 let countChar = rep ? rep : 0;
+                 obj[count[i]] = countChar + 1;
+             } */
+            //console.log(obj);
+
+            ///////////////////////////////////////////
+            let odd = [];
+            let even = [];
+            // let exp = char.replace(/[^\w\s]/gi, '')
+            // console.log(exp);
+            // let locwe = exp.toLowerCase()
+            // console.log(locwe);
+            // let remove = locwe.replace(/\s/g, '')
+            // console.log(remove);
+
+            let sp = char.split('').filter(m => {
+                return /[a-zA-Z]/.test(m)
+            }).map(m =>
+                m.toLowerCase()
+            )
+            // console.log(sp);
+
+            let count = sp.reduce((acc, mov, i, arr) => {
+                acc[mov] = (acc[mov] || 0) + 1;
+                return acc
+            }, {})
+            //console.log(count);
+            const obj = Object.values(count).map((mov) => {
+                return mov % 2 === 0 ? even.push(mov) : odd.push(mov)
+            })
+            let oddLen = odd.length;
+            let evenLen = even.length;
+            return oddLen <= 1 && evenLen >= 1 ? true : false;
+        }
+        console.log(isPalindrome("I did, did I?"));
+        console.log(isPalindrome("Ilet.sDellacallEdStella"));
+        console.log(isPalindrome("Level"));
+        console.log(isPalindrome("on meoln no loenm"));
+        console.log(isPalindrome("waas tii tca aws"));
+        console.log(isPalindrome("hnnaha"));
+        console.log(isPalindrome("elisabeth"));
+        console.log(isPalindrome("becky"));
+        console.log(isPalindrome("Cigar? Toss it in a can. It is so 'tragic'?!"));
+
+    </script>
+</body>
+
+</html>

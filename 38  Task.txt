@@ -1,0 +1,10 @@
+ function toUnderScore (str) {
+
+
+}
+
+
+toUnderScore('TestController') // 'test_controller'
+toUnderScore('MoviesAndBooks') // 'movies_and_books'
+toUnderScore('App7Test') // 'app7_test'
+toUnderScore(1) // '1'

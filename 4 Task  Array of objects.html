@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    <script>
+      const datas = [
+        {
+          equipmentDescId: 1,
+          equipmentDescName: "EDB 10 Nozzle",
+          equipmentId: 1,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 2,
+          equipmentDescName: "EDB 10 + 3 Nozzle",
+          equipmentId: 1,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 3,
+          equipmentDescName: "DPIR 028 CE",
+          equipmentId: 1,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 4,
+          equipmentDescName: "DPIR 028",
+          equipmentId: 1,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 5,
+          equipmentDescName: "DPIR 025",
+          equipmentId: 1,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 6,
+          equipmentDescName: "Specialist 4 Head",
+          equipmentId: 1,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 7,
+          equipmentDescName: "HP Flare",
+          equipmentId: 2,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 8,
+          equipmentDescName: "LP Flare",
+          equipmentId: 2,
+          toolId: 1,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 9,
+          equipmentDescName: "Zone II 1600cfm Comp",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 10,
+          equipmentDescName: "Rigsafe 1600cfm Comp",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 11,
+          equipmentDescName: "Zone II, 48m3/min compressor",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 12,
+          equipmentDescName: "Zone II, 50m3/min compressor",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 13,
+          equipmentDescName: "Zone II Twindrive 3000usgpm booster pump",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 14,
+          equipmentDescName: "Zone II seawater 3000usgpm booster pump",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 15,
+          equipmentDescName: "Rigsafe seawater 3500usgpm booster pump",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 16,
+          equipmentDescName: "Rigsafe 3100cfm Comp - EU Stage V",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 17,
+          equipmentDescName: "Saudi TMT Package",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 18,
+          equipmentDescName: "TMT1/2 Package",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 19,
+          equipmentDescName: "Saudi TMT CT Equipment Operation",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 20,
+          equipmentDescName: "N2 Generator & Compressors",
+          equipmentId: 3,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 21,
+          equipmentDescName: "Zone II Z-15 25m3/min Comp",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 22,
+          equipmentDescName: "Randaberg RTE-25",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 23,
+          equipmentDescName: "Zone II twin electric 3000usgpm booster pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 24,
+          equipmentDescName: "Twin electric submersible 3500usgpm pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 25,
+          equipmentDescName: "Zone II 90, Seawater 400m3/hr booster pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 26,
+          equipmentDescName: "Zone II 75, Seawater 400m3/hr booster pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 27,
+          equipmentDescName: "Zone II twin electric 3000usgpm booster pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 28,
+          equipmentDescName: "Twin electric submersible 3500usgpm pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 29,
+          equipmentDescName: "Zone II 90, Seawater 400m3/hr booster pump",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 30,
+          equipmentDescName: "Flex MPD Choke",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 31,
+          equipmentDescName: "Level 3 / 4 MPD Choke",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 32,
+          equipmentDescName: "Promass 83F 4” Coriolis Meter",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 33,
+          equipmentDescName: "Promass 83F 6” Coriolis Meter",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 34,
+          equipmentDescName: "DAS Cabin",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 35,
+          equipmentDescName: "MPD Computers and Monitors",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 36,
+          equipmentDescName: "RPD",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 37,
+          equipmentDescName: "RCD 5000 HPU & Workshop",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 38,
+          equipmentDescName: "Marine Sentry RCD HPU",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 39,
+          equipmentDescName:
+            "(MPD) Brazil Equipment Operation (Choke, 4 monitors, 3 Kontron, 1 switch, choke skid and coriolis meter )",
+          equipmentId: 4,
+          toolId: 2,
+          floconnect: 0,
+        },
+        {
+          equipmentDescId: 40,
+          equipmentDescName: "Zone II 6.0mmbtu steam generator",
+          equipmentId: 5,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 41,
+          equipmentDescName: "Zone II, Fire tube 2500kg/hr generator",
+          equipmentId: 5,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 42,
+          equipmentDescName: "Safe Zone, Water tube 2500kg/hr generator",
+          equipmentId: 5,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 43,
+          equipmentDescName: "Rigsafe 4.5mmbtu steam generator",
+          equipmentId: 5,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 44,
+          equipmentDescName: "Rigsafe 6.2mmbtu steam generator",
+          equipmentId: 5,
+          toolId: 2,
+          floconnect: 1,
+        },
+        {
+          equipmentDescId: 45,
+          equipmentDescName: "EDB 10 Nozzle",
+          equipmentId: "1",
+          toolId: 1,
+          floconnect: 1,
+        },
+      ];
+
+      const user = {
+        equipmentDescId: "",
+        equipmentDescName: "User Defined",
+        equipmentId: "",
+        toolId: 1,
+        floconnect: 1,
+      };
+
+      datas.push(user);
+
+      const obj = [];
+      const flag = 1;
+
+      for (let data of datas) {
+        if (flag === 1) {
+          if (data.floconnect === 1) {
+            obj.push(data);
+          }
+        } else {
+          obj.push(data);
+        }
+      }
+      console.log(obj);
+      ////////////////////////////////////////////////////////////////////////////////////
+      const x = datas.forEach((data) => {
+        if (flag === 1) {
+          if (data.floconnect === 1) {
+            obj.push(data);
+          }
+        } else {
+          obj.push(data);
+        }
+      });
+
+      /*   ////////////////////////////////////////////////////////////////////////////////////
+
+    
+     const filterDesc = function(data){
+       data.push(user);
+       if(flag ===1){
+         return data.filter(m=>m.floconnect ===1);
+       }
+       return data;
+     }
+
+     console.log(filterDesc(data)); 
+     */
+      //const data2 = data.push(user);
+      // const data2 = data.concat(user);
+      // data.push(user);
+
+      // console.log(data);
+    </script>
+  </body>
+</html>

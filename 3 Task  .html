@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-3</title>
+  </head>
+  <body>
+    <script>
+      /* Task-3*/
+
+      const users = [
+        { id: 32, fname: "Mary", lname: "Smith" },
+        { id: 65, fname: "Steve", lname: "Hancock" },
+        { id: 105, fname: "LJ", lname: "Estoque" },
+        { id: 65, fname: "Steve", lname: "Hancock" },
+        { id: 12, fname: "Lynette", lname: "Turner" },
+        { id: 32, fname: "Mary", lname: "Smith" },
+      ];
+
+      const filter = users.map(JSON.stringify);
+      // console.log(filter);
+      uniqueSet = new Set(filter);
+      //  console.log(uniqueSet);
+      uniqueSetArray = Array.from(uniqueSet).map(JSON.parse);
+      //  console.log(uniqueSetArray);
+
+      const remove = Array.from(uniqueSetArray).map((data) => data);
+      console.log(remove);
+
+      users = users.filter(function (item, i, arrayof) {
+        return arrayof.indexOf(item) === i;
+      });
+      console.log(users);
+    </script>
+  </body>
+</html>

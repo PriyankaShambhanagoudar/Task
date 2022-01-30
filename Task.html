@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*  const transactionLog = [
+ ["Feb", "SLR", 4, "M"],
+ ["Feb", "ENT", 800, "K"],
+ ["Mar", "SLR", 4000, "K"],
+ ["Mar", "ENT", 800, "K"],
+ ["Apr", "SLR", 4010, "K"],
+ ["Apr", "ENT", 810, "K"],
+]; */
+
+    const transactionLog = [
+      ["Jul", "SLR", 4, "M"],
+      ["Jul", "ENR", 0.8, "M"],
+      ["Jul", "OTR", 1200, "K"], //6000
+      ["Aug", "SLR", 4000, "K"],
+      ["Aug", "ENR", 0.8, "M"],
+      ["Aug", "OTR", 1190, "K"], //5990
+      ["Sep", "SLR", 4, "M"],
+      ["Sep", "ENR", 800, "K"],
+      ["Sep", "OTR", 1190, "K"], //5990
+    ];
+
+    let expenseArray = [];
+    function findInconsistency() {
+      transactionLog.forEach((log, index) => {
+        let monthlyExpenses = {
+          month: "",
+          expenses: 0,
+        };
+        monthlyExpenses.month = transactionLog[index][0]; //log[0]
+        monthlyExpenses.expenses = conv(transactionLog[index]);
+
+        if (transactionLog[index + 1]) {
+          //transactionLog[index][2];
+          if (transactionLog[index][0] === transactionLog[index + 1][0]) {
+            monthlyExpenses.expenses += conv(transactionLog[index + 1]) //  transactionLog[index + 1][2];
+            if (
+              transactionLog[index + 2] &&
+              transactionLog[index + 1][0] === transactionLog[index + 2][0]
+            ) {
+              monthlyExpenses.expenses += conv(transactionLog[index + 2])// transactionLog[index + 2][2];
+            }
+            expenseArray.push(monthlyExpenses);
+          }
+        }
+      });
+    }
+    findInconsistency();
+
+    //helper function
+
+    function conv(log) {
+      if (log[3] === "M") {
+        return log[2] * 1000;
+      } else {
+        return log[2]
+      }
+    }
+
+    console.log(expenseArray);
+  </script>
+</body>
+
+</html>

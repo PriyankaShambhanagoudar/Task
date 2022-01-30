@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+       Take a float number and check if each digit is divisble by the digit on the left.
+       Plaese ignore the decimals, if any.
+
+      isDivisibleByPrevDigit(2026.34) === [false, true, false, true]
+
+      isDivisibleByPrevDigit(73312.54) === [false, false, true, false, true]
+
+      isDivisibleByPrevDigit(632) === [true, false, false]
+
+      isDivisibleByPrevDigit(1337.12) === [false, true, true, false]
+
+      isDivisibleByPrevDigit(0) === [false]
+              */
+
+      function isDivisibleByPrevDigit(data) {
+        /* const TruncNum = Math.trunc(data);
+        const arr = TruncNum.toString().split("").map(Number);
+
+        const divide = arr.reduce((acc, cur, i, array) => {
+          let previousIndex = i === 0 ? array.length - 1 : i - 1;
+          let x = cur % array[previousIndex] === 0;
+          acc.push(x);
+          return acc;
+        }, []); 
+        console.log(divide);*/
+        ////////////////////////////////////////
+        return Math.floor(data)
+          .toString()
+          .split("")
+          .map(Number)
+          .map((mov, i, arr) => {
+            let prevInd = i === 0 ? arr.length - 1 : i - 1;
+            return mov % arr[prevInd] === 0;
+          });
+      }
+      console.log(isDivisibleByPrevDigit(632.34));
+      console.log(isDivisibleByPrevDigit(2026.34));
+      console.log(isDivisibleByPrevDigit(0));
+      console.log(isDivisibleByPrevDigit(73312.54));
+      console.log(isDivisibleByPrevDigit(1337.12));
+
+      
+    </script>
+  </body>
+</html>

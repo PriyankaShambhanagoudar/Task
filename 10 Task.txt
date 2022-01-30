@@ -1,0 +1,12 @@
+
+areEqual({ a: 1, b: 2 }, {a: 1, b: 2}) === true;
+
+areEqual({ a: 2, b: 1 }, {a: 1, b: 2}) === true;
+
+areEqual({ a: 2, b: 2 }, {a: 1, b: 2}) === false;
+
+areEqual({},{}) === true;
+
+areEqual({name:"Peter"}, {lastname :"Peter"})=== true;
+
+areEqual({name:"John"},{lastname:"Peter"}) ===false;

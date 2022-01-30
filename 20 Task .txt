@@ -1,0 +1,21 @@
+Who won the lottery?
+
+ A group of friends has bought lottery tickets. The winning ticket's first and last digits add up to the same number as the four middle ones. Return the name of the winner or none.
+
+getWinner([
+{name: "Amy", ticket: 103002},
+{name: "Ginger", ticket: 435429},
+{name: "Philippe", ticket: 478491},
+]) === 'Amy';
+
+getWinner([
+{name: "Dmitry", ticket: 406502},
+{name: "Cruzo", ticket: 275839},
+{name: "Fransis", ticket: 452491},
+]) === 'none';
+
+getWinner([
+{name: "Pablo", ticket: 742902},
+{name: "Moris", ticket: 233419},
+{name: "Sandra", ticket: 923499},
+]) === 'Moris, Sandra';

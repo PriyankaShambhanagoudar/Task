@@ -1,0 +1,3 @@
+hardSwitch({ Hello: 'World'} === {wORLD: 'hELLO'});
+
+hardSwitch({ challengeStatus: 'almostOver', nextThingIs: 'checkScore'}) === { ALMOSToVER: 'CHALLENGEsTATUS', CHECKsCORE: 'NEXTtHINGiS'};

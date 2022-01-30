@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+       We have a number, and we want to sort its individual digits(0 to 9) asscendantly, but showing all the odd numbers first, and then the even ones.
+
+       sortByModulus(123456) === 135246;
+
+       sortByModulus(436763) === 337466;
+
+       sortByModulus(87054221) === 15702248;
+
+       sortByModulus(1) === 1;
+
+       sortByModulus(2) === 2;
+  */
+
+    function sortByModulus(data) {
+      const str = data.toString().split('');
+      let even = []
+      let odd = []
+      const num = str.map((mov, i, arr) => {
+        return mov % 2 === 0 ? even.push(mov) : odd.push(mov)
+      })
+      const sortArr = even.sort((a, b) => a - b)
+      const sortArr1 = odd.sort((a, b) => a - b)
+
+      const marg = sortArr1.concat(sortArr).join('')
+      console.log(marg);
+    }
+
+    sortByModulus(436763)
+    sortByModulus(123456)
+    sortByModulus(87054221)
+    sortByModulus(1)
+    sortByModulus(2) 
+  </script>
+</body>
+
+</html>
